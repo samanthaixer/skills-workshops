@@ -4,7 +4,7 @@ require 'geocoder'
 class Appointment
   attr_reader :time, :title
 
-  def initialize(time, tit1e, location, geocoder = Geocoder)
+  def initialize(time, title, location, geocoder = Geocoder)
     @time = time
     @title = title
     @location = location
@@ -19,6 +19,9 @@ class Appointment
   attr_reader :location, :geocoder
 
   def geo_location
+    p @location
+    p geocoder
+    p @geocoder.search(location)
     geocoder.search(location)[0]
   end
 end
